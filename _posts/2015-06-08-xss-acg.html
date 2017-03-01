@@ -1,0 +1,21 @@
+---
+layout: post
+title: XSS Açığı
+date: '2015-06-08T19:46:00.004+03:00'
+author: k4y4
+tags:
+- xss açığı
+- xss açığı kapatma
+- xss açığını kapatma
+- xss açığı ile site hackleme
+- xss kapatma
+- xss hacking
+- xss hackleme
+- xss hack
+modified_time: '2015-06-08T19:51:02.453+03:00'
+thumbnail: http://2.bp.blogspot.com/-rdGaIc35JEE/VXXGz60HyyI/AAAAAAAAA_Y/zIsuYrYn38E/s72-c/cross-site-scripting-xss.png
+blogger_id: tag:blogger.com,1999:blog-4815567283606325798.post-4216105091847011804
+blogger_orig_url: http://www.erdinckaya.org/2015/06/xss-acg.html
+---
+
+<div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-rdGaIc35JEE/VXXGz60HyyI/AAAAAAAAA_Y/zIsuYrYn38E/s1600/cross-site-scripting-xss.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="1" src="http://2.bp.blogspot.com/-rdGaIc35JEE/VXXGz60HyyI/AAAAAAAAA_Y/zIsuYrYn38E/s200/cross-site-scripting-xss.png" width="1" /></a></div><span style="color: red;"><b></b></span><span style="color: red;"><b>XSS Nedir ?</b></span>XSS Cross Site Scripting olarak bilinen web uygulamalarında mevcut olan çok yaygın bir açıktır. XSS atak yapan kişinin zararlı kodlarını inject etmesine dayananır. Kullanıcıya yönelik saldırı yapabiliriz. Sql açığı gibi Server'a değil.<br /><span style="color: red;"><b>XSS Açığı Nasıl Oluşur ?</b></span><br />XSS açıkları bir değişkenin değerinin var olup olmadığını kontrol etmeden değişkenin yansıtılmasından meydana gelir.<br /><br /><i>Örneğin:</i><br /><blockquote class="tr_bq">$tht = $_GET[’tht1];<br />echo $tht<br />?&gt;</blockquote>Yukarıdaki kodlarda tht değişkeni echo ile yansıtılmış. Ancak GET metoduyla tht1 değeri nin kontrolu yapılmamış.Bu hata echo <span style="color: red;"><b>$tht</b></span> satırında XSS açığı meydana getirmektedir.<br /><br /><span style="color: red;"><b>XSS Açığı Nasıl Kapatılır ?</b></span><br />Eğer değişkenin değerinin var olup olmadığını kontrol edersek XSS açığını kapatmış oluruz.XSS açığını nasıl kapatırız örneğini verecek olursak;<br /><br /><blockquote class="tr_bq">&nbsp;if(isset($_GET[’tht’])) // Kontrol if $_GET[’tht’] varmı?<br />{<br />echo htmlentities($_GET[’tht’], ENT_QUOTES); <i>// Yansıt ve encode kodlarla devam et</i><br />}<br />&nbsp;?&gt;</blockquote><b><span style="color: red;">XSS Açığı Olan Siteler Nasıl Bulunur ?</span></b><br />Xss Açığı olan siteleri bulmak için Google arama motorunda&nbsp;<b style="color: red;">inurl:"search.php?q=" </b>olan dorkumuzu aratmamız yeterlidir.<br /><br /><b><span style="color: red;">XSS Açığı Nasıl Kullanılır (Hacklenir) ?</span></b><br />**********alert("XSS")<br /><br />Bu kod ile bir popup uyarı mesajı karşımıza çıkacaktır. Şimdi yukarıda verdiğimiz<br />dork örneği ile XSS saldırı tipini belirleyelim:<br /><br /><blockquote class="tr_bq">http://site.com/search.php?q=**********alert("XSS")</blockquote><br />Pop-up uyarısı geldi.<br />XSS ile yapılan yanlışlardan bir tanesi herkesin sadece javascript kod inject edildiğini düşünmesi. Oysaki:<br /><br /><blockquote class="tr_bq">http://site.com/search.php?q=<br /><br /><u>XSS</u></blockquote><br />Bu inject çeşidindede bold yazısı ile de hata alabiliyoruz.<br /><br />XSS açıklarının nasıl çalıştığını anladık. Şimdi Deface yöntemleri üzerinde,<br />duralım.<br /><br />İlk yöntemimiz Html tag’ı olarak bilinen <img /> etiketi. XSS açığı var<br />olan bir web sitesinin üzerine grafiğimizi bağlayabiliriz.<br /><br /><html><bOdy>< IMG http:="" site.com="" sizinresminiz.png="" src="http://site/resim.png">Yukarıda ne denmek istendiğini verilen koda geçerli bir resim adresini girip uyguladığınız zaman anlarsınız.XSS kodumuzu pano, ziyaretçi defteri veya yorum kutularına girdiğimiz zaman web site kullanıcıları burayı ziyaret ettiği zaman: < IMG src= " /> kodumuz ile resmin olduğu sayfaya yöneleceklerdir.</bOdy></html> <br /><br />Diğer bir yöntem flash video yöntemi:<br /><br />< EMBED src="http://site.com/xss.swf"></embed><br /><br />Kodlarımız ile ziyaretçilere eşsiz bir görsel şölen sunabiliriz.<br /><br />Yada yönlendirme kodu atabiliriz.<br /><br />**********window.open( "http://www.google.com/" )<br /><br /><br />Yukardaki kodumuz ile XSS bulduğumuz zayfaları yönlendirebiliriz.

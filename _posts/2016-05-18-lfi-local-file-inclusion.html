@@ -1,0 +1,19 @@
+---
+layout: post
+title: LFI (Local File İnclusion)
+date: '2016-05-18T14:03:00.003+03:00'
+author: k4y4
+tags:
+- local file inclusion açığı
+- nasıl site hacklenir
+- lfı açığı anlatım
+- local file inclusion
+- lfı açığı
+- site hackeleme
+modified_time: '2016-07-26T14:07:11.632+03:00'
+thumbnail: https://2.bp.blogspot.com/-TNdiRL7nIDc/VzxJ52LkERI/AAAAAAAAB_Q/6h1jrdVSincI1t5pfhuvoEk0adgiYxvBACLcB/s72-c/0aa2673222b2543815d69f8ec23a5107-flatnux.png
+blogger_id: tag:blogger.com,1999:blog-4815567283606325798.post-29825327371533580
+blogger_orig_url: http://www.erdinckaya.org/2016/05/lfi-local-file-inclusion.html
+---
+
+<div class="separator" style="clear: both; text-align: center;"><a href="https://2.bp.blogspot.com/-TNdiRL7nIDc/VzxJ52LkERI/AAAAAAAAB_Q/6h1jrdVSincI1t5pfhuvoEk0adgiYxvBACLcB/s1600/0aa2673222b2543815d69f8ec23a5107-flatnux.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="260" src="https://2.bp.blogspot.com/-TNdiRL7nIDc/VzxJ52LkERI/AAAAAAAAB_Q/6h1jrdVSincI1t5pfhuvoEk0adgiYxvBACLcB/s400/0aa2673222b2543815d69f8ec23a5107-flatnux.png" width="400" /></a></div>Öncelikle LFI Nedir ve Ne işe yarar ?<br />Local File Inclusion Uzaktan sunucuya dosya aktarmaya denir.<br /><br />Pekii açıklar nereden kaynaklanır ?<b>&nbsp;</b><br /><b>Scriptte</b>sayfa <b>include</b> edilirken, <b>include</b> edilecek sayfanın, kullanıcının müdahale edebildiği veriler<b>&nbsp;</b>üzerinden tanımlanmasından kaynaklanmaktadır.<br /><br />Aşağıda belirtilen fonksiyonlardan;<br /><br /><div class="MsoNormal"><b>include()</b></div><div class="MsoNormal"><b>include_once()</b></div><div class="MsoNormal"><b>require()</b></div><div class="MsoNormal"><b>require_once()</b></div><div class="MsoNormal"><b>fopen()</b></div><b>file_get_contents()</b><br /><br /><b> </b><br />Sitede LFI olduğunu anlamak ve hatayı görebilmek için<b>;</b><br /><br />http://www.site.com/<b>.../.../etc/passwd</b><br /><b><br /></b>bazı sunucularda ise <b>/etc/.../.../.../passwd </b>şeklindede olabilmektedir.<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="https://4.bp.blogspot.com/-oJZWyAd7Qo0/VzxLfe7GhyI/AAAAAAAAB_c/5Rv0aOpKuDkmuKpbLtaUqFCSYCpPbZ6xgCLcB/s1600/etc.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="301" src="https://4.bp.blogspot.com/-oJZWyAd7Qo0/VzxLfe7GhyI/AAAAAAAAB_c/5Rv0aOpKuDkmuKpbLtaUqFCSYCpPbZ6xgCLcB/s400/etc.png" width="400" /></a></div><br />Kodumuzu yazdıktan sonra sitenin belirli bir yerinde ve ya tamamında resimdeki gibi hata alırız.<br /><br /><b>/proc/self/environ </b>kendini çağıran bilgileri verir. Yani faydalanmamız gereken <b>/proc/self/status 'dur</b><br /><b><br /></b>http://site.com<b>/.../.../proc/self/status&nbsp;&nbsp;</b><br /><b><br /></b>Bundan sonra işe <b>tamper data</b> ve <b>shell </b>sokma işlemi giriyor&nbsp;&nbsp; kolay gelsin :)
