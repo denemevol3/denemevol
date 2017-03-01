@@ -1,0 +1,21 @@
+---
+layout: post
+title: Wordpress Güvenlik
+date: '2015-02-16T18:49:00.000+02:00'
+author: k4y4
+tags:
+- wordpress dosya izinleri ayarlama
+- wordperss güvene alma
+- wordpress güvenlik
+- wordpress admin
+- wordpress güvenliği
+- wordpress açıkları kapatma
+- wordpress versiyon gizleme
+- ".htaccess şifreleme"
+modified_time: '2015-02-16T18:49:15.554+02:00'
+thumbnail: http://1.bp.blogspot.com/-FosxJ2VnVOs/VOIekv99cOI/AAAAAAAAAsc/BGcHRH7R-CA/s72-c/wordpress-guvenlik.jpg
+blogger_id: tag:blogger.com,1999:blog-4815567283606325798.post-7518003453316159441
+blogger_orig_url: http://www.erdinckaya.org/2015/02/wordpress-guvenlik.html
+---
+
+<div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/-FosxJ2VnVOs/VOIekv99cOI/AAAAAAAAAsc/BGcHRH7R-CA/s1600/wordpress-guvenlik.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/-FosxJ2VnVOs/VOIekv99cOI/AAAAAAAAAsc/BGcHRH7R-CA/s1600/wordpress-guvenlik.jpg" height="121" width="200" /></a></div><br /><br />Wordpress scripti kurduysanız bu scripti güncelleme geldiği zaman güncellemeniz gerekmekte. Wordpress de olan açıkları wordpress sürümünü güncelliyerek giderir. Bu nedenle wordpressi ve wordpress de olan eklentileri sürekli güncellemeliyiz.<br /><div><br /><div><b><span style="color: #cc0000;">Wordpress Admin:</span></b></div><div>Wordpress adminlik oluşturduğunuz zaman genelde kullanıcı isimleri admin yada site adı şeklinde olur. Buna özel bilgisayar korsanları brute force yaparak şifreleri kolayca çözebilmekte belirli kelime aralığındaki şifreleri bulmaktadırlar örneğin; "<i>admin:admin admin:admin123 admin:pass123 admin:123456 admin:pass</i>" gibi. Şifrelerinizi seçerken şifrelerinizde "!'^+%&amp;/()=?_][" gibi semboller kullanmaya çalışın bu sizi brute forceden koruyacaktır ve admin panel yolunuzu "<i>wp-admin - wp-login.ph</i><i>p</i>" isimlerinde barındırmayın.</div><div></div><div><br /></div></div><div><b><span style="color: red;">Wordpress versiyon gizleme:</span></b></div><div>Wordpress de kurmuş olduğunuz versiyonlara göre exploit çıkmaktadır ve bu exploitte sizin versiyonunuzun açıkları yer almaktadır. Wordpress versiyonunuzu gizlemek için FTP'de bulunan functions.php kısmının en altına&nbsp;</div><div><br /></div><blockquote class="tr_bq"><span style="background-color: #e1e4f2; font-size: 13.3333330154419px;">unction remove_version() { return ”; } add_filter(‘the_generator’, ‘remove_version’);</span>&nbsp;</blockquote><br />kodunu eklemelisiniz.<br /><br /><span style="color: red;"><b>Wordpress Dosya izinleri:&nbsp;</b></span><br />Wordpressinizin dosya izinlerini<br /><br /><blockquote class="tr_bq">Ana dizin : 755<br />wp-includes/ : 755<br />wp-admin/ : 755<br />wp-admin/js/ : 755<br />wp-content/ : 755<br />wp-content/themes/ : 755<br />wp-content/plugins/ : 755<br />wp-admin/index.php : 644<br />.htaccess : 644<br />wp-config.php : 644</blockquote><br />şeklinde ayarlamalınısız.<br /><br /><b><span style="color: red;">.htaccess şifreleme:</span></b><br />Admin panelinin veya sql bilgilerinin olduğu klasörü ne kadar gizlersek gizliyelim bu isimler kırılabilir ve hackerler tarafından bulunabilir. Bunun çözümünü ise .htaccess ile klasörü şifreleyerek buluyoruz. Klasörü şifrelemek için .htaccess açıyoruz ve ftp mizde gizleyeceğimiz klasörün içine atıyoruz .htaccessin içine<br /><br /><blockquote class="tr_bq">AuthType Basic<br />AuthName "Secure Area"<br />AuthUserFile "/home/domain/public_html/klasöradı/passwd"<br />require valid-user</blockquote><br />gördüğümüz kodları kendi sitemize göre uyarlıyarak ekliyoruz. <br /><br /><span style="color: red;"><b>Sunucu Açıkları:</b></span><br />Kullandığınız sunucuda yani hostingi aldığınız firmanın sunucusunda açıklar olabilir. Ne gibi açıklar ? Web sitenizin IP adresine whois bilgisi ile ulaşılabilir ve bu ip adresi taratılarak içindeki tüm sitelere ulaşılabilir. Sunucuzdaki herhangi bir sitenin bilgilerini ulaşıldığı takdirde hackerler arasında config adı verilen işlem yapılır ve sitenizin veri tabanı bilgilerine kadar herşeyine ulaşılabilir. Bu yüzden hosting aldığınız firmayı özenle seçin ve bu konular hakkında hosting almadan önce mutlaka bir konuşma yapınız.
