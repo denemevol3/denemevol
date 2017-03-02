@@ -2,6 +2,6 @@
 highlighter: pygments
 url: https://erdinckaya.org
 lsi: false
-paginate: 10
+paginate: 20
 paginate_path: "/blog/page:num/"
 exclude: [LICENSE, CNAME, README.md, .gitignore, Gemfile, Gemfile.lock]
