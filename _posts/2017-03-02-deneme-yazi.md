@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Deneme Yazısı 1
+title: Deneme 1
 categories: deneme
 - blog
 ---
