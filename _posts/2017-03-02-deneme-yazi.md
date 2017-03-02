@@ -1,8 +1,7 @@
 
 ---
 layout: post
-title: Kali Linux 2.0 ve 1.1 için Güncel Depolar
-author: k4y4
+title: baslik boyle
 tags:
 - etiket boyle
 - etiket 2
