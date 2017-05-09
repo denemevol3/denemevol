@@ -1,3 +1,5 @@
+<iframe width="560" height="315" src="https://www.youtube.com/embed/oT6gYdYFzjA?rel=0" frameborder="0" allowfullscreen></iframe>
+
 Genel de en bilindik sql injection id=1' olur fakat az bilinen çok uygulanan
 
 bir atak daha vardır login kısımlarına uyguladığımız 1'or'1'='1 login bypass
