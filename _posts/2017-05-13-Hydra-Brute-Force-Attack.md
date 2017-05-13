@@ -4,4 +4,4 @@
 sudo apt-get install hydra
 
 1 million word list; <br>
-http://www.mediafire.com/file/dr2xsxxpgirnirs/1.1million_word_list.txt.gz
+<a href="http://www.mediafire.com/file/dr2xsxxpgirnirs/1.1million_word_list.txt.gz" target="_blank">Download</a>
