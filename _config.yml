@@ -1,5 +1,5 @@
 # General Jekyll Config
-highlighter: pygments
+highlighter: rouge
 url: https://erdinckaya.org
 lsi: false
 paginate: 20
