@@ -3,4 +3,5 @@
 
 <h3><a href="https://www.apachefriends.org/tr/download.html" target="_blank">XAMPP İNDİR</a></h3>
 <b>chmod 755 xampp-linux-x64-7.1.4-0-installer.run <br>
-./xampp-linux-x64-7.1.4-0-installer.run</b>
+./xampp-linux-x64-7.1.4-0-installer.run<br>
+Çalıştırmak için "/opt/lampp/lampp start"</b>
