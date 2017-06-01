@@ -5,6 +5,6 @@
  ![enter image description here](https://i.hizliresim.com/8d0RPA.png) 
 
 **figlet nick** <br>
-<img src="https://i.hizliresim.com/vpdWJD.png" width="700">
+<img src="https://i.hizliresim.com/vpdWJD.png" width="750">
 
 ![enter image description here](https://i.hizliresim.com/DdVgBZ.png)
