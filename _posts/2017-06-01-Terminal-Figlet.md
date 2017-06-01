@@ -4,7 +4,7 @@
  **leafpad /root/.bashrc**
  ![enter image description here](https://i.hizliresim.com/8d0RPA.png) 
 
-**figlet nick**
-<img src="https://i.hizliresim.com/vpdWJD.png" width="500">
+**figlet nick** <br>
+<img src="https://i.hizliresim.com/vpdWJD.png" width="600">
 
 ![enter image description here](https://i.hizliresim.com/DdVgBZ.png)
