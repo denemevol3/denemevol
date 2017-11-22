@@ -1,2 +1,0 @@
-Bloğumdaki makaleler tamamen white hat pentest içindir. Sorumluluk tamamen kullanıcıya aittir. Tarafım hiç bir hüküm kabul etmez.
-------------------------------------------------------------------------
